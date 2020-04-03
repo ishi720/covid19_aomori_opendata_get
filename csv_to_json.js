@@ -5,7 +5,7 @@ const csv = require('convert-csv-to-json');
 
 csv_to_json('./csv/consult.csv','./json/consult.json');
 csv_to_json('./csv/consult_call_center.csv','./json/consult_call_center.json');
-csv_to_json('./csv/inspect.csv','./json/inspect.json');
+csv_to_json('./csv/inspect.csv','./json/inspection.json');
 
 function csv_to_json (inputFile, outputFile) {
 	genCSV().then(res => {
