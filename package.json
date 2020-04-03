@@ -1,0 +1,24 @@
+{
+  "name": "covid19_aomori_opendata_get",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishi720/covid19_aomori_opendata_get.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishi720/covid19_aomori_opendata_get/issues"
+  },
+  "homepage": "https://github.com/ishi720/covid19_aomori_opendata_get#readme",
+  "dependencies": {
+    "convert-csv-to-json": "0.0.15",
+    "iconv-lite": "0.5.x",
+    "node-wget": "0.4.x"
+  }
+}
