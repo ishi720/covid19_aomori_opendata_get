@@ -3,9 +3,9 @@ const fs = require('fs');
 const iconv = require('iconv-lite');
 const csv = require('convert-csv-to-json');
 
-csv_to_json('consult.csv','consult.json');
-csv_to_json('consult_call_center.csv','consult_call_center.json');
-csv_to_json('inspect.csv','inspection.json');
+csv_to_json('consult.csv','_consult.json');
+csv_to_json('consult_call_center.csv','_consult_call_center.json');
+csv_to_json('inspect.csv','_inspection.json');
 
 function csv_to_json (inputFile, outputFile) {
 	genCSV().then(res => {
