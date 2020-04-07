@@ -1,4 +1,4 @@
 node_modules
-temp.csv
+temp*.csv
 csv/*.csv
 json/*.json
