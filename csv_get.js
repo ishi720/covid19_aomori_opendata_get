@@ -25,6 +25,10 @@ request.get({ url: url }, function (error, response, body) {
 	 			dest: './csv/inspect.csv'
 	 		});
 	 	} else if (val.name.match(/陽性患者関係/)) {
+	 		wget({
+	 			url: val.url,
+	 			dest: './csv/patients.csv'
+	 		});
 	 	} else if (val.name.match(/検査陽性者の状況/)) {
 	 	}
 	})
