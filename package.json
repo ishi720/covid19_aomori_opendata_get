@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/ishi720/covid19_aomori_opendata_get.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ishi720",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ishi720/covid19_aomori_opendata_get/issues"
   },
