@@ -19,6 +19,7 @@
   "dependencies": {
     "convert-csv-to-json": "0.0.15",
     "iconv-lite": "0.5.x",
-    "node-wget": "0.4.x"
+    "node-wget": "0.4.x",
+    "request-promise": "4.x.x"
   }
 }
