@@ -1,3 +1,5 @@
+'use strict';
+
 //CSVをjsonに変換する
 const fs = require('fs');
 const iconv = require('iconv-lite');
