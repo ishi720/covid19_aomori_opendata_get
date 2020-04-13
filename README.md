@@ -1,5 +1,9 @@
 covid19青森用のオープンデータをjsonにします
 
+## Badge
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bba5c58b3cbc4cb492415f5a273b28cb)](https://www.codacy.com/manual/ishi720/covid19_aomori_opendata_get?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ishi720/covid19_aomori_opendata_get&amp;utm_campaign=Badge_Grade)[![dependencies Status](https://david-dm.org/ishi720/covid19_aomori_opendata_get/status.svg)](https://david-dm.org/ishi720/covid19_aomori_opendata_get)
+
 ## オープンデータ取得元
 
 - [青い森オープンデータカタログ](https://opendata.pref.aomori.lg.jp/dataset/1531.html)
