@@ -64,20 +64,20 @@ request.get({ url: url }, function (error, response, body) {
                 "date": val.updated.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,"$1/$2/$3")
             }
 
-            fs.writeFile('json/inspect.json', JSON.stringify(inspect_last_update, null, 4), (err, data) => {
+            fs.writeFile('json/inspection.json', JSON.stringify(inspect_last_update, null, 4), (err, data) => {
               if(err) console.log(err);
-              else console.log('inspect.json');
+              else console.log('inspection.json');
             });
 
             // csv作成
             wget({
                 url: val.url,
-                dest: './csv/inspect.csv'
+                dest: './csv/inspection.csv'
              },(error, response, body) => {
                 if (error) {
-                    console.log("inspect.csv [Error]");
+                    console.log("inspection.csv [Error]");
                 } else {
-                    console.log("Save to inspect.csv");
+                    console.log("Save to inspection.csv");
                 }
             });
         } else if (val.name.match(/陽性患者関係/)) {
