@@ -1,3 +1,5 @@
+coverage
+
 node_modules
 temp*.csv
 csv/*.csv
