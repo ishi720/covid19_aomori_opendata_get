@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require("fs");
-const request = require("request-promise");
+const fs = require('fs');
+const request = require('request-promise');
 
 // 現在の入院患者数の取得
 request('https://www.stopcovid19.jp/data/covid19japan.json')
@@ -38,4 +38,4 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
     })
     .catch(error => {
         throw error;
-    })
+    });

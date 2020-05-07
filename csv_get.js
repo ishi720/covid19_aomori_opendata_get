@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require("fs");
-const request = require("request");
+const fs = require('fs');
+const request = require('request');
 const wget = require('node-wget');
 const url = 'https://opendata.pref.aomori.lg.jp/api/package_show?id=5e4612ce-1636-41d9-82a3-c5130a79ffe0';
 
