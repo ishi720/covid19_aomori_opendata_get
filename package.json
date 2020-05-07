@@ -23,6 +23,6 @@
     "request-promise": "4.x.x"
   },
   "devDependencies": {
-    "jest": "25.x.x"
+    "jest": "26.x.x"
   }
 }
