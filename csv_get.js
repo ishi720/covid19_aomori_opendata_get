@@ -12,99 +12,72 @@ request.get({ url: url }, function (error, response, body) {
     resources.forEach( (val) => {
         if (val.name.match(/相談件数（コールセンター）/)) {
 
-
             // 更新日時のjson作成
-            const consult_call_center_last_update= {
-                "date": val.updated.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,"$1/$2/$3")
-            }
+            updatedToJson(val.updated,'consult_call_center');
 
-            fs.writeFile('json/consult_call_center.json', JSON.stringify(consult_call_center_last_update, null, 4), (err, data) => {
-              if(err) console.log(err);
-              else console.log('save_consult_call_center.json');
-            });
+            // csv生成
+            getCSV(val.url,'consult_call_center');
 
-            // csv作成
-            wget({
-                url: val.url,
-                dest: './csv/consult_call_center.csv'
-            },(error, response, body) => {
-                if (error) {
-                    console.log("consult_call_center.csv [Error]");
-                } else {
-                    console.log("Save to consult_call_center.csv");
-                }
-            });
         } else if (val.name.match(/相談件数（帰国者・接触者相談）/)) {
 
             // 更新日時のjson作成
-            const consult_last_update = {
-                "date": val.updated.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,"$1/$2/$3")
-            }
+            updatedToJson(val.updated,'consult');
 
-            fs.writeFile('json/consult.json', JSON.stringify(consult_last_update, null, 4), (err, data) => {
-              if(err) console.log(err);
-              else console.log('consult.json');
-            });
+            // csv生成
+            getCSV(val.url,'consult');
 
-            // csv作成
-            wget({
-                url: val.url,
-                dest: './csv/consult.csv'
-            },(error, response, body) => {
-                if (error) {
-                    console.log("consult.csv [Error]");
-                } else {
-                    console.log("Save to consult.csv");
-                }
-            });
         } else if (val.name.match(/検査実施状況/)) {
 
             // 更新日時のjson作成
-            const inspect_last_update = {
-                "date": val.updated.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,"$1/$2/$3")
-            }
+            updatedToJson(val.updated,'inspection');
 
-            fs.writeFile('json/inspection.json', JSON.stringify(inspect_last_update, null, 4), (err, data) => {
-              if(err) console.log(err);
-              else console.log('inspection.json');
-            });
+            // csv生成
+            getCSV(val.url,'inspection');
 
-            // csv作成
-            wget({
-                url: val.url,
-                dest: './csv/inspection.csv'
-             },(error, response, body) => {
-                if (error) {
-                    console.log("inspection.csv [Error]");
-                } else {
-                    console.log("Save to inspection.csv");
-                }
-            });
         } else if (val.name.match(/陽性患者関係/)) {
 
             // 更新日時のjson作成
-            const patients_last_update = {
-                "date": val.updated.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,"$1/$2/$3")
-            }
+            updatedToJson(val.updated,'patients');
 
-            fs.writeFile('json/patients.json', JSON.stringify(patients_last_update, null, 4), (err, data) => {
-              if(err) console.log(err);
-              else console.log('patients.json');
-            });
-
-            // csv作成
-            wget({
-                url: val.url,
-                dest: './csv/patients.csv'
-            },(error, response, body) => {
-                if (error) {
-                    console.log("patients.csv [Error]");
-                } else {
-                    console.log("Save to patients.csv");
-                }
-            });
+            // csv生成
+            getCSV(val.url,'patients');
 
         } else if (val.name.match(/検査陽性者の状況/)) {
         }
     })
 });
+
+/**
+ * 各データの更新日時をフォーマットして、jsonファイルとして保存する
+ * @param {string} dateTime - 更新された日時
+ * @param {string} fileName - 出力するファイル名
+ */
+let updatedToJson = (dateTime,fileName) => {
+    // 更新日時のjson作成
+    const updated = {
+        'date': dateTime.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,"$1/$2/$3")
+    }
+
+    fs.writeFile('json/'+ fileName +'.json', JSON.stringify(updated, null, 4), (err, data) => {
+      if(err) console.log(err);
+      else console.log(fileName +'.json');
+    });
+}
+
+/**
+ * CSVの取得と保存をする
+ * @param {string} url - csv取得元のURL
+ * @param {string} fileName - 出力するファイル名
+ */
+let getCSV = (url,fileName) => {
+    wget({
+        url: url,
+        dest: './csv/'+ fileName +'.csv'
+    },(error, response, body) => {
+        if (error) {
+            console.log(fileName +'.csv [Error]');
+        } else {
+            console.log('Save to '+ fileName +'.csv');
+        }
+    });
+}
