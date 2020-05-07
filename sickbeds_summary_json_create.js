@@ -18,18 +18,18 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
 
                 // 出力するデータの作成
                 const outputData = {
-                    "sickbeds_summary": {
-                       "data": {
-                            "入院患者数": ncurrentpatients,
-                            "残り病床数": sumi - ncurrentpatients
+                    'sickbeds_summary': {
+                       'data': {
+                            '入院患者数': ncurrentpatients,
+                            '残り病床数': sumi - ncurrentpatients
                         },
-                        "last_update": ncurrentpatients_lastUpdate.replace(/-/g,'/')
+                        'last_update': ncurrentpatients_lastUpdate.replace(/-/g,'/')
                     }
                 };
 
                 fs.writeFile('json/sickbeds_summary.json', JSON.stringify(outputData, null, 4), (err, data) => {
-                  if(err) console.log(err);
-                  else console.log('sickbeds_summary.json write');
+                    if(err) console.log(err);
+                    else console.log('sickbeds_summary.json write');
                 });
             })
             .catch(error => {

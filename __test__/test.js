@@ -42,11 +42,11 @@ describe('sickbeds_summary', () => {
     });
 });
 
-function isJson(jsonFile){
+let isJson = (jsonFile) => {
     try {
         JSON.parse( fs.readFileSync(jsonFile));
     } catch (e) {
-        return false
+        return false;
     }
-      return true
+    return true;
 }

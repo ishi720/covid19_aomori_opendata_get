@@ -21,7 +21,7 @@ function csv_to_json (inputFile, outputFile) {
         return new Promise((resolve, reject) => {
             fs.readFile('./csv/'+ inputFile, function(err, data){
                 const buf = new Buffer.from(data, 'binary');
-                const retStr = iconv.decode(buf, "Shift_JIS");
+                const retStr = iconv.decode(buf, 'Shift_JIS');
                 fs.writeFile('temp_' + inputFile, retStr, (err) => {
                     if (err) throw err;
                     resolve(retStr);  

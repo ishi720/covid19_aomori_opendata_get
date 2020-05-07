@@ -55,12 +55,12 @@ request.get({ url: url }, function (error, response, body) {
 let updatedToJson = (dateTime,fileName) => {
     // 更新日時のjson作成
     const updated = {
-        'date': dateTime.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,"$1/$2/$3")
+        'date': dateTime.replace(/^(\d{4})-(\d{2})-(\d{2}).+$/,'$1/$2/$3')
     }
 
     fs.writeFile('json/'+ fileName +'.json', JSON.stringify(updated, null, 4), (err, data) => {
-      if(err) console.log(err);
-      else console.log(fileName +'.json');
+        if(err) console.log(err);
+        else console.log(fileName +'.json');
     });
 }
 
