@@ -1,0 +1,19 @@
+#
+# The scope of support conforms to the nodejs official.
+# https://github.com/nodejs/Release/blob/master/README.md
+#
+# Version of node managed by DockerHub.
+# https://hub.docker.com/_/node/
+#
+language: node_js
+node_js:
+  - "14"
+  - "13"
+  - "12"
+  - "10"
+after_script:
+  - node csv_get.js
+  - node csv_to_json.js
+  - node json_fix.js
+  - node sickbeds_summary_json_create.js
+  - yarn test
