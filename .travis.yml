@@ -16,4 +16,5 @@ before_script:
   - node csv_to_json.js
   - node json_fix.js
   - node sickbeds_summary_json_create.js
+script:
   - yarn test
