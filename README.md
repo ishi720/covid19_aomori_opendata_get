@@ -2,7 +2,7 @@ covid19青森用のオープンデータをjsonにします
 
 ## Badge
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bba5c58b3cbc4cb492415f5a273b28cb)](https://www.codacy.com/manual/ishi720/covid19_aomori_opendata_get?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ishi720/covid19_aomori_opendata_get&amp;utm_campaign=Badge_Grade)[![dependencies Status](https://david-dm.org/ishi720/covid19_aomori_opendata_get/status.svg)](https://david-dm.org/ishi720/covid19_aomori_opendata_get)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bba5c58b3cbc4cb492415f5a273b28cb)](https://www.codacy.com/manual/ishi720/covid19_aomori_opendata_get?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ishi720/covid19_aomori_opendata_get&amp;utm_campaign=Badge_Grade)[![dependencies Status](https://david-dm.org/ishi720/covid19_aomori_opendata_get/status.svg)](https://david-dm.org/ishi720/covid19_aomori_opendata_get) [![Build Status](https://travis-ci.org/ishi720/covid19_aomori_opendata_get.svg?branch=master)](https://travis-ci.org/ishi720/covid19_aomori_opendata_get)
 
 ## オープンデータ取得元
 
@@ -29,6 +29,9 @@ $ node csv_get.js
 
 ## csvをjson化
 $ node csv_to_json.js
+
+## 不要データの削除
+$ node json_fix.js
 
 ###
 # COVID-19 Japanからデータ生成
