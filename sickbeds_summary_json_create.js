@@ -7,7 +7,7 @@ const request = require('request-promise');
 request('https://www.stopcovid19.jp/data/covid19japan.json')
     .then(body => {
         const obj = JSON.parse(body);
-        const ncurrentpatients = obj.area[1]['ncurrentpatients']
+        const ncurrentpatients = obj.area[1]['ncurrentpatients'];
         const ncurrentpatients_lastUpdate = obj.lastUpdate;
 
         //病床数の取得
@@ -19,7 +19,7 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
                 // 出力するデータの作成
                 const outputData = {
                     'sickbeds_summary': {
-                       'data': {
+                        'data': {
                             '入院患者数': ncurrentpatients,
                             '残り病床数': sumi - ncurrentpatients
                         },
@@ -34,7 +34,7 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
             })
             .catch(error => {
                 throw error;
-            })
+            });
     })
     .catch(error => {
         throw error;
