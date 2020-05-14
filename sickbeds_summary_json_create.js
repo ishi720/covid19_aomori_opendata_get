@@ -14,7 +14,8 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
         request('https://www.stopcovid19.jp/data/bedforinfection_summary.json')
             .then(body => {
                 const obj2 = JSON.parse(body);
-                const sumi = obj2.area[1]['sumi'];
+                //const sumi = obj2.area[1]['sumi'];
+                const sumi = 99;
 
                 // 出力するデータの作成
                 const outputData = {
