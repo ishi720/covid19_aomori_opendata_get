@@ -11,47 +11,23 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
         const ncurrentpatients_lastUpdate = obj.lastUpdate;
 
         //病床数の取得
-        request('https://www.stopcovid19.jp/data/bedforinfection_summary.json')
-            .then(body => {
-                const obj2 = JSON.parse(body);
-                //const sumi = obj2.area[1]['sumi'];
-                const sumi = 99;
-
-                // 出力するデータの作成
-                const outputData = {
-                    'sickbeds_summary': {
-                        'data': {
-                            '入院患者数': ncurrentpatients,
-                            '残り病床数': sumi - ncurrentpatients
-                        },
-                        'last_update': ncurrentpatients_lastUpdate.replace(/-/g,'/')
-                    }
-                };
-
-                fs.writeFile('json/sickbeds_summary.json', JSON.stringify(outputData, null, 4), (err, data) => {
-                    if(err) console.log(err);
-                    else console.log('sickbeds_summary.json write');
-                });
-            })
-            .catch(error => {
-                throw error;
-            });
-
-        //病床数の取得
-        // request('https://www.stopcovid19.jp/data/covid19japan_beds/latest.json')
+        // request('https://www.stopcovid19.jp/data/bedforinfection_summary.json')
         //     .then(body => {
-        //         const beds = JSON.parse(body);
+        //         const obj2 = JSON.parse(body);
+        //         //const sumi = obj2.area[1]['sumi'];
+        //         const sumi = 99;
 
         //         // 出力するデータの作成
         //         const outputData = {
         //             'sickbeds_summary': {
         //                 'data': {
         //                     '入院患者数': ncurrentpatients,
-        //                     '残り病床数':  Number(beds[1]['入院患者受入確保病床']) + Number(beds[1]['宿泊施設受入可能室数']) - ncurrentpatients
+        //                     '残り病床数': sumi - ncurrentpatients
         //                 },
-        //                 'last_update': getNewerDate(beds[1]['更新日'].replace(/-/g,'/'), ncurrentpatients_lastUpdate.replace(/-/g,'/'))
+        //                 'last_update': ncurrentpatients_lastUpdate.replace(/-/g,'/')
         //             }
         //         };
+
         //         fs.writeFile('json/sickbeds_summary.json', JSON.stringify(outputData, null, 4), (err, data) => {
         //             if(err) console.log(err);
         //             else console.log('sickbeds_summary.json write');
@@ -60,6 +36,30 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
         //     .catch(error => {
         //         throw error;
         //     });
+
+        //病床数の取得
+        request('https://www.stopcovid19.jp/data/covid19japan_beds/latest.json')
+            .then(body => {
+                const beds = JSON.parse(body);
+
+                // 出力するデータの作成
+                const outputData = {
+                    'sickbeds_summary': {
+                        'data': {
+                            '入院患者数': ncurrentpatients,
+                            '残り病床数':  Number(beds[1]['入院患者受入確保病床']) - ncurrentpatients
+                        },
+                        'last_update': getNewerDate(beds[1]['更新日'].replace(/-/g,'/'), ncurrentpatients_lastUpdate.replace(/-/g,'/'))
+                    }
+                };
+                fs.writeFile('json/sickbeds_summary.json', JSON.stringify(outputData, null, 4), (err, data) => {
+                    if(err) console.log(err);
+                    else console.log('sickbeds_summary.json write');
+                });
+            })
+            .catch(error => {
+                throw error;
+            });
 
     })
     .catch(error => {
