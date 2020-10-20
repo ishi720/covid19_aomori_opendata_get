@@ -46,7 +46,9 @@ request('https://www.stopcovid19.jp/data/covid19japan.json')
                     'sickbeds_summary': {
                         'data': {
                             '入院患者数': ncurrentpatients,
-                            '残り病床数':  Number(beds[1]['入院患者受入確保病床']) - ncurrentpatients
+                            '入院患者受入確保病床': Number(beds[1]['入院患者受入確保病床']),
+                            '宿泊施設受入可能室数': Number(beds[1]['宿泊施設受入可能室数']),
+                            '残り病床数':  Number(beds[1]['入院患者受入確保病床']) + Number(beds[1]['宿泊施設受入可能室数']) - ncurrentpatients
                         },
                         'last_update': getNewerDate(beds[1]['更新日'].replace(/-/g,'/'), ncurrentpatients_lastUpdate.replace(/-/g,'/'))
                     }
