@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ishi720/covid19_aomori_opendata_get#readme",
   "dependencies": {
-    "convert-csv-to-json": "0.0.15",
+    "convert-csv-to-json": "1.x.x",
     "iconv-lite": "0.6.x",
     "node-wget": "0.4.x",
     "request-promise": "4.x.x"
